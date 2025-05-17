@@ -12,6 +12,7 @@ protocol UserServiceProtocol {
     func fetchUsersData() async throws -> [User]
 }
 
+//TODO: Add document comments
 //TODO: Add failsafe
 class UserService: UserServiceProtocol {
     

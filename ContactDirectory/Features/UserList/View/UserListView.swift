@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//TODO: Add document comments
 struct UserListView: View {
     // @State var userViewModel: UserListViewModel // state only changes back and forth
     @Bindable var userViewModel: UserListViewModel
