@@ -7,7 +7,7 @@
 
 import Foundation
 
-//TODO: no need of ublish as observation implictly does
+//TODO: Add document comments
 @Observable
 final class UserListViewModel/*: ObservableObject*/ {
     

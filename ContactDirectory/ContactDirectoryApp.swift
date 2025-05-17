@@ -19,8 +19,7 @@ struct ContactDirectoryApp: App {
                     selectedUser = user
                 }
                 .navigationDestination(item: $selectedUser) { user in
-                    //TODO: pass data during details view implementation
-                    UserDetailsView()
+                    UserDetailsView(user: user)
                 }
             }
         }

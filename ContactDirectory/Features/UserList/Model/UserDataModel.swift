@@ -15,7 +15,7 @@ import Foundation
  
  For example, the `userID` property is mapped to the `"id"` key in JSON using `case userID = "id"`.
  */
-// identifiable so taht it can be populated in lsit as paraemeter else will throw error
+//TODO: identifiable so that it can be populated in lsit as parameter else will throw error <remove this comment >
 struct User: Identifiable, Codable, Equatable, Hashable {
     
     let id: Int
