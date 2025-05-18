@@ -24,20 +24,20 @@ ContactDirectory is a basic iOS app built with SwiftUI that allows browsing the 
 
 ## Features
 
-- ** User List Screen: ** Displays a searchable list of users fetched from a remote API. The list displays name, email and photo of the user. The list offers refreshable list with pull down to refresh feature. 
-- ** User Detail Screen: ** Displays detailed information of the selected user. The screen is divided into Sections - Personal Information, Contact, Address and displays user profile image.
+- **User List Screen:** Displays a searchable list of users fetched from a remote API. The list displays name, email and photo of the user. The list offers refreshable list with pull down to refresh feature. 
+- **User Detail Screen:** Displays detailed information of the selected user. The screen is divided into Sections - Personal Information, Contact, Address and displays user profile image.
 
 ---
 
 ## Technologies in the making
 
-- ** Xcode 16.3 **
-- ** SwiftUI **
-- ** Swift **
-- ** Swift DSL for Unit Testing with View Inspector**
-- ** XCTest for UI Testing **
-- ** Swift Package Manager to add dependencies **
-- ** [View Inspector](https://github.com/nalexn/ViewInspector) package **
+- **Xcode 16.3**
+- **SwiftUI**
+- **Swift**
+- **Swift DSL for Unit Testing with View Inspector**
+- **XCTest for UI Testing**
+- **Swift Package Manager to add dependencies**
+- **[View Inspector](https://github.com/nalexn/ViewInspector) package**
 
 ---
 
@@ -107,9 +107,9 @@ ContactDirectoryUITests/
 
 ## Setup, Runtime environment and Usage
 
-1. ** Clone the repository ** and used Xcode to open the `.xcodeproj`.
-2. ** Swift Package Build ** wait for the package to resolve and install.
-3. ** Build and run ** the app using iPhone device or sumulator
+1. **Clone the repository** and used Xcode to open the `.xcodeproj`.
+2. **Swift Package Build** wait for the package to resolve and install.
+3. **Build and run** the app using iPhone device or sumulator
 4. Wait for the list **to load** and tap on any row to open detailed screen.
 5. On Main screen **Pull-To-Refresh** the content.
 6. Use the **Search Bar** to filter the users by name.
