@@ -7,14 +7,23 @@
 
 import SwiftUI
 
-//TODO: Add document comments
+/**
+ Displays the list of users fetched from a remote URL, with support for searching the users using a `Search Bar` and reload the user list using `Pull-To-Refresh` feature.
+ */
 struct UserListView: View {
-    // @State var userViewModel: UserListViewModel // state only changes back and forth
+    
+    //MARK: Properties
+    
+    ///The view model object that manages the list of users.
     @Bindable var userViewModel: UserListViewModel
+    
+    ///Stores the current text entered in the search bar.
     @State private var searchText: String = ""
+    
+    /// Action to perform when a user row is selected.
     var onSelect: (User) -> Void
     
-    //to get the results of the filter from serach bar
+    ///Returns the list of users filtered using the search text from the search bar.
     var filteredUsers: [User] {
         if searchText.isEmpty {
             return userViewModel.users
@@ -25,65 +34,24 @@ struct UserListView: View {
         }
     }
     
+    //MARK: Body
+    
     var body: some View {
         NavigationView {
             Group {
                 if let _ = userViewModel.error {
-                    VStack(spacing: 16) {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundColor(.orange)
-                            .font(.system(size: 48.0))
-                        Text("Oops!, We could not load your data.")
-                            .font(.headline)
-                        Text("Please retry after some time.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        Button(action: {
-                            Task {
-                                await userViewModel.getUserProfiles()
-                            }
-                        }) {
-                            Text("Retry")
-                                .bold()
-                                .padding()
-                                .frame(width: 200, height: 50) // seting before background sets for button  else for area
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8.0)
+                    ErrorView(message: "We could not load your data.", retryAction: {
+                        Task {
+                            await userViewModel.getUserProfiles()
                         }
-                    }
-                    // Text("Error:  \(error.localizedDescription)")
-                    //     .foregroundColor(.red)
+                    })
                 } else if userViewModel.users.isEmpty {
-                    ProgressView("Loading...")
+                    ProgressView("Loading users...")
+                        .progressViewStyle(.circular)
                 } else {
                     List(filteredUsers) { user in
                         Button(action: { onSelect(user) }) {
-                            HStack {
-                                if let photo = user.photo, let url = URL(string: photo) {
-                                    AsyncImage(url: url) { userImage in
-                                        if let image = userImage.image {
-                                            image
-                                                .resizable()
-                                        } else if userImage.error != nil {
-                                            Image(systemName:"person.circle.fill")
-                                                .resizable()
-                                                .foregroundColor(.gray)
-                                        }
-                                    }
-                                    .frame(width: 40.0, height: 40.0)
-                                    .clipShape(Circle())
-                                }
-                                VStack(alignment: .leading) {
-                                    Text(user.name ?? "")
-                                        .font(.headline)
-                                    if let email = user.email {
-                                        Text(email)
-                                            .font(.subheadline)
-                                            .foregroundColor(.secondary)
-                                    }
-                                }
-                            }
+                            ProfileRowView(user: user)
                         }
                     }
                     .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
@@ -99,4 +67,3 @@ struct UserListView: View {
         }
     }
 }
-
