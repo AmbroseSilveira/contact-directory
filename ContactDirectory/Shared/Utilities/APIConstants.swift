@@ -20,3 +20,13 @@ struct APIConstants {
         static let getUserData = "users"
     }
 }
+
+//MARK: Enum for HTTP method
+
+/// Enum defining different types of HTTP request methods
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}

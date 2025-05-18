@@ -15,7 +15,7 @@ struct UserListView: View {
     //MARK: Properties
     
     ///The view model object that manages the list of users.
-    @Bindable var userViewModel: UserListViewModel
+    @Bindable var userViewModel: UserListViewModel<User>
     
     ///Stores the current text entered in the search bar.
     @State private var searchText: String = ""
@@ -42,7 +42,7 @@ struct UserListView: View {
                 if let _ = userViewModel.error {
                     ErrorView(message: "We could not load your data.", retryAction: {
                         Task {
-                            await userViewModel.getUserProfiles()
+                            await userViewModel.fetchData()
                         }
                     })
                 } else if userViewModel.users.isEmpty {
@@ -56,14 +56,14 @@ struct UserListView: View {
                     }
                     .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
                     .refreshable(action: {
-                        await userViewModel.getUserProfiles()
+                        await userViewModel.fetchData()
                     })
                 }
             }
             .navigationTitle("Users")
         }
         .task {
-            await userViewModel.getUserProfiles()
+            await userViewModel.fetchData()
         }
     }
 }
