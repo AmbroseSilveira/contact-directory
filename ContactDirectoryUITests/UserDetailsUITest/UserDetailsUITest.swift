@@ -17,6 +17,7 @@ final class UserDetailsUITest: XCTestCase {
     }
     
     func testUserDetailsViewUIElements() throws {
+       
         
         // Check for profile image
         let profileImage = app.images["DetailsProfileImage"]
@@ -41,5 +42,6 @@ final class UserDetailsUITest: XCTestCase {
         XCTAssertTrue(app.staticTexts["State"].exists)
         XCTAssertTrue(app.staticTexts["Country"].exists)
         XCTAssertTrue(app.staticTexts["ZIP Code"].exists)
+         
     }
 }

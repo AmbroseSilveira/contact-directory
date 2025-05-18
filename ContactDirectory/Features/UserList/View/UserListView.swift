@@ -23,12 +23,17 @@ struct UserListView: View {
     /// Action to perform when a user row is selected.
     var onSelect: (User) -> Void
     
-    ///Returns the list of users filtered using the search text from the search bar.
+    ///Returns the list of users filtered using the search text from the search bar. Removes faker user with error string
     var filteredUsers: [User] {
+        let validUsers = userViewModel.users.filter { user in
+            // Exclude users whose name contains the error string
+            guard let name = user.name else { return false }
+            return !name.contains(AppConstants.errorString)
+        }
         if searchText.isEmpty {
-            return userViewModel.users
+            return validUsers
         } else {
-            return userViewModel.users.filter { user in
+            return validUsers.filter { user in
                 (user.name ?? "").localizedCaseInsensitiveContains(searchText)
             }
         }

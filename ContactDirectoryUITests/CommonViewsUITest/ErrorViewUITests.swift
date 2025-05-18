@@ -10,6 +10,7 @@ import XCTest
 final class ErrorViewUITests: XCTestCase {
     
     let app = XCUIApplication()
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
         app.launch()
