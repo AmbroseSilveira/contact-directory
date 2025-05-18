@@ -158,3 +158,6 @@ ContactDirectoryUITests/
 - [Swift UI guide](https://www.swift.org/getting-started/swiftui/)
 - [Swift UI ViewInspector test cases](https://github.com/nalexn/ViewInspector)
 - [Swift DSL Testing](https://developer.apple.com/videos/play/wwdc2024/10179/)
+
+> **Note:**  
+> The complete commit history is available in the `development` branch. The `main` branch contains only final MVP which is shared.
