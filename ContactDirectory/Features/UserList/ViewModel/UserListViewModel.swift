@@ -7,26 +7,41 @@
 
 import Foundation
 
-//TODO: Add document comments
+/// A generic view model for managing and fetching list of users from remote API.
+/// Facilitates asynchronous data fetching and error handling for generic model type - `T`
+/// The class is marked as `Observable` wih swift macro feature which automatically observation of properties and changes and does not explictly need `@Published` properties or `ObservableObject` conformance.
 @Observable
-final class UserListViewModel/*: ObservableObject*/ {
+class UserListViewModel<T: Identifiable & Decodable> {
     
-    var users: [User] = []
-    var error: Error?
-    private let userService: UserServiceProtocol
+    //MARK: Properties
     
-    init(userService: UserServiceProtocol) {
-        self.userService = userService
+    ///Stores list of Users of Generic Type `T`. Updated on successful completion of `fetchData()`.
+    var users: [T] = []
+    
+    ///Error associated with fetch user list, if any.
+    var error : Error?
+    
+    ///Closure hadling fetching user list asynchronously
+    private let fetchCompletionClosure: () async throws -> [T]
+    
+    //MARK: Initialisation
+    
+    /// Initialises a new `UserListViewModel`
+    /// - Parameter fetchCompletionClosure: Closure returning  array of generic Type.
+    init(fetchCompletionClosure: @escaping () async throws -> [T]) {
+        self.fetchCompletionClosure = fetchCompletionClosure
     }
     
+    //MARK:  Methods
+    
+    /// Fetches User data and updates the users and error properties.
+    /// If explicitly called, error is to be set to nil for success, to update the list. e.g: retry operation
     @MainActor
-    func getUserProfiles() async {
+    func fetchData() async {
         do {
-            self.users = try await userService.fetchUsersData()
-            // set to nil to revceive update after retry / refresh
+            self.users = try await fetchCompletionClosure()
             self.error = nil
         } catch {
-            debugPrint("Error encountered:\(error.localizedDescription)")
             self.error = error
         }
     }

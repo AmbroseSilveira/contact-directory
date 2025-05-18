@@ -30,19 +30,4 @@ struct User: Identifiable, Codable, Equatable, Hashable {
     let phone: String?
     let photo: String?
     
-    /*
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case company
-        case username
-        case email
-        case address
-        case zip
-        case state
-        case country
-        case phone
-        case photo
-    }
-     */
 }

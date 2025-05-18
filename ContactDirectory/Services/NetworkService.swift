@@ -7,38 +7,66 @@
 
 import Foundation
 
-//Easy testing and dependency injection
-protocol UserServiceProtocol {
-    func fetchUsersData() async throws -> [User]
+//MARK: Network service protocol
+
+///Protocol for reusable, generic networking call with HTTP request.
+///Helps in easy testing and dependency injection
+protocol NetworkServiceProtocol {
+    /**
+     Function to make an API request  asynchronously and throws error in case of errors.
+     - Parameters
+     - endpoint: Endpoint path to be appended to the base URL.
+     - method: HTTP method type. e.g.: GET, POST, etc.
+     - body: Body of the request of type `Data`, if any.
+     - headers: Headers for the request.
+     - Returns: Datamodel of generic type which conforms to `Decodable`.
+     - Throws: Error incase of failure
+     */
+    func request<T:Decodable>(endpoint: String, method: HTTPMethod, body: Data?, headers: [String: String]?) async throws -> T
 }
 
-//TODO: Add document comments
-//TODO: Add failsafe
-class UserService: UserServiceProtocol {
+//MARK: Networl request implementation
+/**
+ Class is responsible for making HTTP service calls with `URLSession` by providing generic `request`.
+ */
+final class NetworkService: NetworkServiceProtocol {
+    
+    //MARK: Properties
     
     private let session: URLSession
     private let baseURL: String
+    
+    //MARK: Initialiser
     
     init(session: URLSession = .shared, baseURL: String = APIConstants.baseURL) {
         self.session = session
         self.baseURL = baseURL
     }
     
-    func fetchUsersData() async throws -> [User] {
-        //implementation
-        //TODO: <create common method to form URLs based on endpoints?
-        let urlString = baseURL + "/" + APIConstants.Endpoints.getUserData
-        debugPrint("URL:\(urlString)")
-        guard let url = URL(string: urlString) else {
+    //MARK: Methods
+    
+    //Makes an API request to the specified endpoint and decodes the response
+    func request<T>(endpoint: String, method: HTTPMethod, body: Data?, headers: [String : String]?) async throws -> T where T : Decodable {
+        
+        //Validate url else throw bad URL error
+        guard let url = URL(string: "\(baseURL)/\(endpoint)") else {
             throw URLError(.badURL)
         }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        //Forma URL request
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.httpBody = body
         
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+        headers?.forEach { request.setValue($1, forHTTPHeaderField: $0) }
+        
+        let (data, response) = try await session.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
             throw URLError(.badServerResponse)
         }
         
-        return try JSONDecoder().decode([User].self, from: data)
+        //Decode and return the Decodable object of type `T`
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }
