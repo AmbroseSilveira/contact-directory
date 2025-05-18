@@ -34,20 +34,24 @@ struct ErrorView: View {
             Image(systemName: "exclamationmark.triangle.fill")
                 .foregroundColor(.orange)
                 .font(.system(size: 48.0))
+                .accessibilityIdentifier("ErrorIcon")
             Text("Oops!, \(message)")
                 .font(.headline)
+                .accessibilityIdentifier("ErrorMessage")
             Text(retryMessage!)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+                .accessibilityIdentifier("RetryPrompt")
             Button(action: retryAction) {
                 Text("Retry")
                     .bold()
                     .padding()
-                    .frame(width: 200.0, height: 50.0) // Setting before background sets for button else tap-able area will stretch <TODO: remove later>
+                    .frame(width: 200.0, height: 50.0)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(8.0)
             }
+            .accessibilityIdentifier("RetryButton")
         }
     }
 }

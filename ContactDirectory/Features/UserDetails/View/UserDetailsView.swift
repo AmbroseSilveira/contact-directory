@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//TODO: Modify the readme file before merge to master
+//TODO: Integrate swift lint using SPM
 /**
  A view that displays the detailed information about a user.  The information is grouped into the following sections:
  - Profile Image
@@ -27,6 +29,7 @@ struct UserDetailsView: View {
             ProfileImageView(photoURL: user.photo, size: 200.0, clipShape: RoundedRectangle(cornerRadius: 8.0))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.vertical)
+                .accessibilityIdentifier("DetailsProfileImage")
         }
     }
     
@@ -37,6 +40,7 @@ struct UserDetailsView: View {
             DetailItemRow(label: "Username", value: user.username)
             DetailItemRow(label: "Company", value: user.company)
         }
+        .accessibilityIdentifier("PersonalInfoSection")
     }
     
     ///Section containing contact deatils: email, phone
@@ -45,6 +49,7 @@ struct UserDetailsView: View {
             DetailItemRow(label: "Email", value: user.email)
             DetailItemRow(label: "Phone", value: user.phone)
         }
+        .accessibilityIdentifier("ContactSection")
     }
     
     ///Section containing address information
@@ -55,6 +60,7 @@ struct UserDetailsView: View {
             DetailItemRow(label: "Country", value: user.country)
             DetailItemRow(label: "ZIP Code", value: user.zip)
         }
+        .accessibilityIdentifier("AddressSection")
     }
     
     //MARK: Body
@@ -68,5 +74,6 @@ struct UserDetailsView: View {
         }
         .navigationTitle(user.name ?? "User Details")
         .navigationBarTitleDisplayMode(.inline)
+        .accessibilityIdentifier("UserDetailsViewList")
     }
 }

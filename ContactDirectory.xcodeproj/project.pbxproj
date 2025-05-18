@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C80C9D232DDA34A500D0AA67 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = C80C9D222DDA34A500D0AA67 /* ViewInspector */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C818B94A2DD8D1F4009C1ED1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80C9D232DDA34A500D0AA67 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +140,7 @@
 			);
 			name = ContactDirectoryTests;
 			packageProductDependencies = (
+				C80C9D222DDA34A500D0AA67 /* ViewInspector */,
 			);
 			productName = ContactDirectoryTests;
 			productReference = C818B9492DD8D1F4009C1ED1 /* ContactDirectoryTests.xctest */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = C818B9332DD8D1F1009C1ED1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C80C9D212DDA34A500D0AA67 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C818B93D2DD8D1F1009C1ED1 /* Products */;
 			projectDirPath = "";
@@ -554,6 +563,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C80C9D212DDA34A500D0AA67 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C80C9D222DDA34A500D0AA67 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C80C9D212DDA34A500D0AA67 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C818B9342DD8D1F1009C1ED1 /* Project object */;
 }

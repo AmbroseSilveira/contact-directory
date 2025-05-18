@@ -29,13 +29,14 @@ struct ProfileRowView: View {
         HStack {
             ProfileImageView(photoURL: user.photo, size: 40.0, clipShape: Circle())
             VStack(alignment: .leading) {
-                //TODO: Fix error for Faker: person.astName not supported
                 Text(user.name ?? "")
                     .font(.headline)
+                    .accessibilityIdentifier("profileNameLabel")
                 if let email = user.email {
                     Text(email)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                        .accessibilityIdentifier("profileEmailLabel")
                 }
             }
         }

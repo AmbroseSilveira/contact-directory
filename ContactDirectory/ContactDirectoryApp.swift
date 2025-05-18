@@ -47,6 +47,7 @@ struct ContactDirectoryApp: App {
                     UserDetailsView(user: user)
                 }
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

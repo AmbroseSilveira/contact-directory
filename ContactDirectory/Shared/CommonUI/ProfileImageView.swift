@@ -45,6 +45,7 @@ struct ProfileImageView<S: Shape>: View {
             }
             .frame(width: size, height: size)
             .clipShape(clipShape)
+            .accessibilityIdentifier("DetailsProfileImage")
         } else {
             Image(systemName: "person.circle.fill")
                 .resizable()
