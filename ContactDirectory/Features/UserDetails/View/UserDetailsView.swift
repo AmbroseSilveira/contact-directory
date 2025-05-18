@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//TODO: Modify the readme file before merge to master
+//TODO: Integrate swift lint using SPM
 /**
  A view that displays the detailed information about a user.  The information is grouped into the following sections:
  - Profile Image
