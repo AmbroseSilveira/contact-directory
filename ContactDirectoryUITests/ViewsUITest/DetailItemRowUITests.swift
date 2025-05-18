@@ -33,11 +33,4 @@ final class DetailItemRowUITests: XCTestCase {
                 XCTAssertEqual(keyLabel.label, "Email:")
         XCTAssertEqual(keyLabel.label, "sample@example.com")
     }
-    
-    func testLaunchPerformance() throws {
-        // This measures how long it takes to launch your application.
-        measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
-        }
-    }
 }
