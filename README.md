@@ -22,7 +22,7 @@ ContactDirectory is a basic iOS app built with SwiftUI that allows browsing the 
 
 ---
 
-##Features
+## Features
 
 - ** User List Screen: ** Displays a searchable list of users fetched from a remote API. The list displays name, email and photo of the user. The list offers refreshable list with pull down to refresh feature. 
 - ** User Detail Screen: ** Displays detailed information of the selected user. The screen is divided into Sections - Personal Information, Contact, Address and displays user profile image.
@@ -68,6 +68,7 @@ ContactDirectory is a basic iOS app built with SwiftUI that allows browsing the 
 
 ## Project File structure
 
+```
 ContactDirectory/
 └── ContactDirectory/
     ├── Features/
@@ -100,7 +101,7 @@ ContactDirectoryTests/
 ContactDirectoryUITests/
 
 |-- 📦 Package Dependencies
-
+```
 
 ---
 
