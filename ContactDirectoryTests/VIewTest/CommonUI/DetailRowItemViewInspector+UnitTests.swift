@@ -11,8 +11,6 @@ import SwiftUI
 
 @testable import ContactDirectory
 
-//extension DetailItemRow {}
-
 /**
  Unit tests for the `DetailItemRow`  view.
  Test suite verifies the proper initialization and data handling
