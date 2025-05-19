@@ -146,6 +146,7 @@ ContactDirectoryUITests/
 
 ## Improvements
 
+- Use **LazyContainer like LazyVstack, LazyHStack** for data display. used basic for assignment. Implement **pagination and background data fetches** for huge data sizes.
 - Images downloaded can be **cached** and reloaded for faster support.
 - Data can be stored in the **storages** like coredata, swiftdata, etc. for offline support
 - Can implement **corrupt or fake data (e.g: Faker data) handling** with more understanding of the JSON data.
