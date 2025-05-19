@@ -14,6 +14,7 @@ ContactDirectory is a basic iOS app built with SwiftUI that allows browsing the 
 - [Architecture](#architecture)
 - [Project File Structure](#project-file-structure)
 - [Setup, Runtime Environment & Usage](#setup--runtime-environment--&--usage)
+- [App Screens](#app-screens)
 - [Test Cases](#test-cases)
 - [Assumptions](#assumptions)
 - [Improvements](#improvements)
@@ -113,6 +114,14 @@ ContactDirectoryUITests/
 4. Wait for the list **to load** and tap on any row to open detailed screen.
 5. On Main screen **Pull-To-Refresh** the content.
 6. Use the **Search Bar** to filter the users by name.
+
+---
+
+## App Screens
+
+![UserList](https://github.com/user-attachments/assets/c62b6a23-c98d-4db0-bd3d-3cbcf7ac0606)
+![User Detail](https://github.com/user-attachments/assets/3f37aacd-f9b5-4e2b-9761-769f1d32a50f)
+![Retry](https://github.com/user-attachments/assets/3ca2ae51-a17a-4804-a056-61789efd6f1f)
 
 ---
 
