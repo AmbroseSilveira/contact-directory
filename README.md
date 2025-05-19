@@ -132,7 +132,8 @@ ContactDirectoryUITests/
     - Unit Test cases for the app are written with Swift DSL support. Unit Test cases also contain ViewInspector support for unit testing view hierarchy using Swift package - ViewInspector.
 2. **UI Test Cases**
     - UI Test cases are written with XCTest framework. 
-    
+> **Note:**  
+> Basic test case suite is added for the assignment purpose.
 ---
 
 ## Assumptions
@@ -148,7 +149,7 @@ ContactDirectoryUITests/
 - Images downloaded can be **cached** and reloaded for faster support.
 - Data can be stored in the **storages** like coredata, swiftdata, etc. for offline support
 - Can implement **corrupt or fake data (e.g: Faker data) handling** with more understanding of the JSON data.
-- **Test cases can be improved** upon and code coverage can be increased.
+- **Test cases can be improved** upon and code coverage can be increased. Testcases for `AppConstants` and UI, network and service must be added and improved.
 - Should add **swift lint** framework for linting
 - Can add **Extensions** for custom logid. e.g.: parsing a string for error
 
@@ -158,7 +159,7 @@ ContactDirectoryUITests/
 
 - Some user images may not load due to API limitations.
 - Error messages and handling is basic and cab be improved.
-- Some Test cases are failing and can be made 100% success with more efforts.
+- Some Test cases are failing and can be made 100% success with additional efforts. Some test cases are intermittently failing specially for UI
 
 ---
 

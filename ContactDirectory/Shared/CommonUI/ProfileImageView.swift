@@ -52,6 +52,7 @@ struct ProfileImageView<S: Shape>: View {
                 .foregroundColor(.gray)
                 .frame(width: size, height: size)
                 .clipShape(clipShape)
+                .accessibilityIdentifier(AccessibilityIdentifiers.ProfileImageViewIDs.profileImageID)
         }
     }
 }

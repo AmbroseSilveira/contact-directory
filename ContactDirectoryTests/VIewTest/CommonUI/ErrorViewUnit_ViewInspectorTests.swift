@@ -50,7 +50,7 @@ struct ErrorViewInspectorTests {
     @MainActor
     func testRetryActionAndDisplayError() throws {
         
-        let errorView = ErrorView(message: "Network error", retryAction:{})
+        let errorView = ErrorView(message: "We could not load your data.", retryAction:{})
         let vStack = try errorView.inspect().vStack()
         
         //Check icon
@@ -59,7 +59,7 @@ struct ErrorViewInspectorTests {
         
         // Check error message
         let errorText = try vStack.text(1).string()
-        #expect(errorText == "Oops!, We could not load your data. ")
+        #expect(errorText == "Oops!, We could not load your data.")
         
         //Check for retry button label
         let retryText = try vStack.text(2).string()

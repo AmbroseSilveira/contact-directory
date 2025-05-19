@@ -11,13 +11,6 @@ import SwiftUI
 
 @testable import ContactDirectory
 
-// MARK: - Mock Model
-
-//struct User: Codable, Identifiable, Equatable {
-//    let id: Int
-//    let name: String?
-//}
-
 // MARK: - Logic Tests for UserListViewModel
 
 
@@ -88,6 +81,7 @@ struct UserListViewInspectorTests {
     @Test
     @MainActor
     func testShowsProgressViewWhenLoading() throws {
+        //TODO: Fix ME: To fix the Test case later
 //        let viewModel = UserListViewModel<User> { [] }
 //        viewModel.users = []
 //        viewModel.error = nil
