@@ -119,9 +119,9 @@ ContactDirectoryUITests/
 
 ## App Screens
 
-![UserList](https://github.com/user-attachments/assets/c62b6a23-c98d-4db0-bd3d-3cbcf7ac0606)
-![User Detail](https://github.com/user-attachments/assets/3f37aacd-f9b5-4e2b-9761-769f1d32a50f)
-![Retry](https://github.com/user-attachments/assets/3ca2ae51-a17a-4804-a056-61789efd6f1f)
+<img src="https://github.com/user-attachments/assets/c62b6a23-c98d-4db0-bd3d-3cbcf7ac0606" alt="UserList" width="200">
+<img src="https://github.com/user-attachments/assets/3f37aacd-f9b5-4e2b-9761-769f1d32a50f" alt="User Detail" width="200">
+<img src="https://github.com/user-attachments/assets/3ca2ae51-a17a-4804-a056-61789efd6f1f" alt="Retry" width="200">
 
 ---
 
