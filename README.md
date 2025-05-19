@@ -94,8 +94,7 @@ ContactDirectory/
     │   │   └── ProfileRowView
     │   └── Utilities/
     │       ├── APIConstants
-    │       ├── AppConstants
-    │       └── Extensions
+    │       └── AppConstants
     ├── Assets/
     └── ContactDirectoryApp
 ContactDirectoryTests/
@@ -134,6 +133,7 @@ ContactDirectoryUITests/
     - UI Test cases are written with XCTest framework. 
 > **Note:**  
 > Basic test case suite is added for the assignment purpose.
+
 ---
 
 ## Assumptions
@@ -150,8 +150,12 @@ ContactDirectoryUITests/
 - Data can be stored in the **storages** like coredata, swiftdata, etc. for offline support
 - Can implement **corrupt or fake data (e.g: Faker data) handling** with more understanding of the JSON data.
 - **Test cases can be improved** upon and code coverage can be increased. Testcases for `AppConstants` and UI, network and service must be added and improved.
-- Should add **swift lint** framework for linting
-- Can add **Extensions** for custom logid. e.g.: parsing a string for error
+- Should add **swift lint** framework for linting.
+- Can add **Extensions** for custom logid. e.g.: parsing a string for error.
+- Better **Error Handling** and error-mapping.
+- Can user `@Statobject` and `@ObservedObject` with `@Publish` for compatibility.
+- Newtorking can have **Logging** for debugging.
+- Can make **swift packages for networking** and other reusbale components for modularity.
 
 ---
 
