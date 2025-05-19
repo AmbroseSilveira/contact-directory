@@ -15,7 +15,7 @@ import Testing
 struct UserDetailViewUnit_ViewInspectorTests {
     @Test
     func testUserProperty() {
-        let user = User(id: 1, name: "Alice", company: "Wonderland Inc", username: "alice", email: "alice@wonder.com", address: "Rabbit Hole", zip: "00001", state: "Imagination", country: "Dreamland", phone: "1234567890", photo: nil)
+        let user = User(id: 1, name: "Alice", company: "XYZ Inx", username: "amber", email: "amber@xyz.com", address: "5th main", zip: "6943", state: "CA", country: "USA", phone: "1234567890", photo: nil)
         let view = UserDetailsView(user: user)
         #expect(view.user == user)
     }
@@ -63,45 +63,45 @@ struct UserDetailsViewInspectorTests {
         
         //check for name
         let nameRow = try findDetailItemRow(in: personalSection, labelText: "Name")
-        #expect(try nameRow?.hStack().text(1).string() == "John Doe")
+        #expect(try nameRow?.hStack().text(2).string() == "John Doe")
         
         //check for username
         let usernameRow = try findDetailItemRow(in: personalSection, labelText: "Username")
-        #expect(try usernameRow?.hStack().text(1).string() == "JohnD")
+        #expect(try usernameRow?.hStack().text(2).string() == "JohnD")
         
         //check for company
         let companyRow = try findDetailItemRow(in: personalSection, labelText: "Company")
-        #expect(try companyRow?.hStack().text(1).string() == "XYZ Inc")
+        #expect(try companyRow?.hStack().text(2).string() == "XYZ Inc")
         
         // Section 2: Contact
         let contactSection = try list.section(2)
         
         //check for email
         let emailRow = try findDetailItemRow(in: contactSection, labelText: "Email")
-        #expect(try emailRow?.hStack().text(1).string() == "johndoe@xyz.com")
+        #expect(try emailRow?.hStack().text(2).string() == "jonhdoe@xyz.com")
         
         //check for phone
         let phoneRow = try findDetailItemRow(in: contactSection, labelText: "Phone")
-        #expect(try phoneRow?.hStack().text(1).string() == "1234567890")
+        #expect(try phoneRow?.hStack().text(2).string() == "1234567890")
         
         // Section 3: Address
         let addressSection = try list.section(3)
         
         //check for street
         let streetRow = try findDetailItemRow(in: addressSection, labelText: "Street")
-        #expect(try streetRow?.hStack().text(1).string() == "1st Street")
+        #expect(try streetRow?.hStack().text(2).string() == "1st Street")
         
         //check for state
-        let stateRow = try findDetailItemRow(in: addressSection, labelText: "Street")
-        #expect(try stateRow?.hStack().text(1).string() == "CA")
+        let stateRow = try findDetailItemRow(in: addressSection, labelText: "State")
+        #expect(try stateRow?.hStack().text(2).string() == "CA")
         
         //check for country
         let countryRow = try findDetailItemRow(in: addressSection, labelText: "Country")
-        #expect(try countryRow?.hStack().text(1).string() == "USA")
+        #expect(try countryRow?.hStack().text(2).string() == "USA")
         
         //check for ZIP
-        let zipRow = try findDetailItemRow(in: addressSection, labelText: "ZIP")
-        #expect(try zipRow?.hStack().text(1).string() == "4532")
+        let zipRow = try findDetailItemRow(in: addressSection, labelText: "ZIP Code")
+        #expect(try zipRow?.hStack().text(2).string() == "4532")
     }
     
     /// Verifies that nil values in user show "N/A" in the rows.
@@ -126,10 +126,10 @@ struct UserDetailsViewInspectorTests {
         
         let personalSection = try list.section(1)
         let nameRow = try findDetailItemRow(in: personalSection, labelText: "Name")
-        #expect(try nameRow?.hStack().text(1).string() == nil) // DetailItemRow should show N/A for nil
+        #expect(try nameRow?.hStack().text(2).string() == "N/A") // DetailItemRow should show N/A for nil
         
         let companyRow = try findDetailItemRow(in: personalSection, labelText: "Company")
-        #expect(try companyRow?.hStack().text(1).string() == nil)
+        #expect(try companyRow?.hStack().text(2).string() == "N/A")
     }
     
     func findDetailItemRow(

@@ -16,10 +16,6 @@ final class ErrorViewUITests: XCTestCase {
         app.launch()
     }
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     func testErrorViewUIElementsAndRetryButton() throws {
         // Check that the error icon exists
         let errorIcon = app.images["ErrorIcon"]
