@@ -10,6 +10,7 @@ import Foundation
 /// A generic view model for managing and fetching list of users from remote API.
 /// Facilitates asynchronous data fetching and error handling for generic model type - `T`
 /// The class is marked as `Observable` wih swift macro feature which automatically observation of properties and changes and does not explictly need `@Published` properties or `ObservableObject` conformance.
+/// 
 @Observable
 class UserListViewModel<T: Identifiable & Decodable> {
     

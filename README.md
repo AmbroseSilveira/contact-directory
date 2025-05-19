@@ -141,6 +141,7 @@ ContactDirectoryUITests/
 - Can implement **corrupt or fake data (e.g: Faker data) handling** with more understanding of the JSON data.
 - **Test cases can be improved** upon and code coverage can be increased.
 - Should add **swift lint** framework for linting
+- Can add **Extensions** for custom logid. e.g.: parsing a string for error
 
 ---
 

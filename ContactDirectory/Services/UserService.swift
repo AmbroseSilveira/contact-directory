@@ -13,10 +13,7 @@ protocol UserServiceProtocol {
     /// Fetches a list of Users asynchronously and throws an error in case of error encountered if any.
     /// - Returns: An array of `User` objects.
     func fetchUsersData() async throws -> [User]
-    
-    //TODO: add more endpoints calls as projects scales
 }
-
 
 /// Implementaiton class for User srevices
 final class UserService: UserServiceProtocol {
@@ -37,6 +34,7 @@ final class UserService: UserServiceProtocol {
     
     ///Fetch thr User list with API call
     func fetchUsersData() async throws -> [User] {
+        
         //call the API method to fetch users list
         try await networkService.request(endpoint: APIConstants.Endpoints.getUserData, method: .get, body: nil, headers: nil)
     }

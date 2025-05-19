@@ -25,25 +25,25 @@ struct ErrorView: View {
     let retryAction: () -> Void
     
     ///Retry prompt message on the screen.
-    let retryMessage: String? = "Please retry after some time."
+    let retryMessage: String? = AppConstants.ErrorMessages.retryMessage
     
     //MARK: Body
     
     var body: some View {
         VStack(spacing: 16.0) {
-            Image(systemName: "exclamationmark.triangle.fill")
+            Image(systemName: AppConstants.SystemKeys.exclamationMarkIconName)
                 .foregroundColor(.orange)
                 .font(.system(size: 48.0))
-                .accessibilityIdentifier("ErrorIcon")
-            Text("Oops!, \(message)")
+                .accessibilityIdentifier(AccessibilityIdentifiers.ErrorViewIDs.errorIconID)
+            Text("\(AppConstants.ErrorMessages.oopsMessage), \(message)")
                 .font(.headline)
-                .accessibilityIdentifier("ErrorMessage")
+                .accessibilityIdentifier(AccessibilityIdentifiers.ErrorViewIDs.errorMessageID)
             Text(retryMessage!)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-                .accessibilityIdentifier("RetryPrompt")
+                .accessibilityIdentifier(AccessibilityIdentifiers.ErrorViewIDs.retryPromptID)
             Button(action: retryAction) {
-                Text("Retry")
+                Text(AppConstants.UIMessages.retryButtonText)
                     .bold()
                     .padding()
                     .frame(width: 200.0, height: 50.0)
@@ -51,7 +51,7 @@ struct ErrorView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8.0)
             }
-            .accessibilityIdentifier("RetryButton")
+            .accessibilityIdentifier(AccessibilityIdentifiers.ErrorViewIDs.retryButtonID)
         }
     }
 }

@@ -11,6 +11,7 @@ import Foundation
  APIConstants provides an unified location, managing all API-related constants
  */
 struct APIConstants {
+    
     /// Base URL for the API
     static let baseURL = "https://fake-json-api.mock.beeceptor.com"
     

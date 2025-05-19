@@ -36,7 +36,7 @@ struct ProfileImageView<S: Shape>: View {
                 if let image = imagePhase.image {
                     image.resizable()
                 } else if imagePhase.error != nil {
-                    Image(systemName: "person.circle.fill")
+                    Image(systemName: AppConstants.SystemKeys.profileIconName)
                         .resizable()
                         .foregroundColor(.gray)
                 } else {
@@ -45,9 +45,9 @@ struct ProfileImageView<S: Shape>: View {
             }
             .frame(width: size, height: size)
             .clipShape(clipShape)
-            .accessibilityIdentifier("DetailsProfileImage")
+            .accessibilityIdentifier(AccessibilityIdentifiers.ProfileImageViewIDs.profileImageID)
         } else {
-            Image(systemName: "person.circle.fill")
+            Image(systemName: AppConstants.SystemKeys.profileIconName)
                 .resizable()
                 .foregroundColor(.gray)
                 .frame(width: size, height: size)

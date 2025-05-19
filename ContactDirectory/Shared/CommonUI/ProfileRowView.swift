@@ -31,12 +31,12 @@ struct ProfileRowView: View {
             VStack(alignment: .leading) {
                 Text(user.name ?? "")
                     .font(.headline)
-                    .accessibilityIdentifier("profileNameLabel")
+                    .accessibilityIdentifier(AccessibilityIdentifiers.ProfileRowViewIDs.profileNameID)
                 if let email = user.email {
                     Text(email)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                        .accessibilityIdentifier("profileEmailLabel")
+                        .accessibilityIdentifier(AccessibilityIdentifiers.ProfileRowViewIDs.profileEmailID)
                 }
             }
         }
