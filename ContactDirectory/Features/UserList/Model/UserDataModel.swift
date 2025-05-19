@@ -10,12 +10,7 @@ import Foundation
 /**
  User Model representing user information which is conforming to Decodable for easy decoding. It will map the reponse from the API call to the JSON.
  All properties are optional except ID to handle incomplete or empty data.
- 
- The `CodingKeys` enum is used for customization of property names in the struct to map to keys in external JSON. It is useful in cases where the property name differs from the key in the data source.
- 
- For example, the `userID` property is mapped to the `"id"` key in JSON using `case userID = "id"`.
  */
-//TODO: identifiable so that it can be populated in lsit as parameter else will throw error <remove this comment >
 struct User: Identifiable, Codable, Equatable, Hashable {
     
     let id: Int
@@ -29,5 +24,4 @@ struct User: Identifiable, Codable, Equatable, Hashable {
     let country: String?
     let phone: String?
     let photo: String?
-    
 }

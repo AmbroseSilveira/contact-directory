@@ -26,9 +26,10 @@ struct UserListView: View {
     ///Returns the list of users filtered using the search text from the search bar. Removes faker user with error string
     var filteredUsers: [User] {
         let validUsers = userViewModel.users.filter { user in
-            // Exclude users whose name contains the error string
+            // Exclude users whose name contains the error string since its fake list
             guard let name = user.name else { return false }
-            return !name.contains(AppConstants.errorString)
+            
+            return !name.contains(AppConstants.ErrorMessages.errorString)
         }
         if searchText.isEmpty {
             return validUsers
@@ -45,13 +46,13 @@ struct UserListView: View {
         NavigationView {
             Group {
                 if let _ = userViewModel.error {
-                    ErrorView(message: "We could not load your data.", retryAction: {
+                    ErrorView(message: AppConstants.ErrorMessages.dataLoadingError, retryAction: {
                         Task {
                             await userViewModel.fetchData()
                         }
                     })
                 } else if userViewModel.users.isEmpty {
-                    ProgressView("Loading users...")
+                    ProgressView(AppConstants.UserMessages.loadingMessage)
                         .progressViewStyle(.circular)
                 } else {
                     List(filteredUsers) { user in
@@ -65,7 +66,7 @@ struct UserListView: View {
                     })
                 }
             }
-            .navigationTitle("Users")
+            .navigationTitle(AppConstants.UIMessages.userListNavigationTitle)
         }
         .task {
             await userViewModel.fetchData()

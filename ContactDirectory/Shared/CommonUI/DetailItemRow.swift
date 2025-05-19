@@ -34,12 +34,12 @@ struct DetailItemRow: View {
     var body: some View {
         HStack {
             Text(label)
-                .accessibilityIdentifier("detailLabel")
+                .accessibilityIdentifier(AccessibilityIdentifiers.DetailItemRowIDs.detailLabelID)
             Spacer()
-            Text(value ?? "N/A")
+            Text(value ?? AppConstants.ErrorMessages.notAvailableMessage)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.trailing)
-                .accessibilityIdentifier("detailValue")
+                .accessibilityIdentifier(AccessibilityIdentifiers.DetailItemRowIDs.detailValueID)
         }
     }
 }

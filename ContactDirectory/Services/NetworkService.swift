@@ -25,7 +25,8 @@ protocol NetworkServiceProtocol {
     func request<T:Decodable>(endpoint: String, method: HTTPMethod, body: Data?, headers: [String: String]?) async throws -> T
 }
 
-//MARK: Networl request implementation
+//MARK: Network request implementation
+
 /**
  Class is responsible for making HTTP service calls with `URLSession` by providing generic `request`.
  */
@@ -53,7 +54,7 @@ final class NetworkService: NetworkServiceProtocol {
             throw URLError(.badURL)
         }
         
-        //Forma URL request
+        //Form URL request
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.httpBody = body
@@ -62,6 +63,7 @@ final class NetworkService: NetworkServiceProtocol {
         
         let (data, response) = try await session.data(for: request)
         
+        //Fail-safe for HTTP response and success status code
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
             throw URLError(.badServerResponse)
         }
