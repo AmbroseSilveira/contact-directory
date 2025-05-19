@@ -148,7 +148,8 @@ ContactDirectoryUITests/
 
 - Use **LazyContainer like LazyVstack, LazyHStack** for data display. used basic for assignment. Implement **pagination and background data fetches** for huge data sizes.
 - Images downloaded can be **cached** and reloaded for faster support.
-- Data can be stored in the **storages** like coredata, swiftdata, etc. for offline support
+- Data can be stored in the **storages** like coredata, swiftdata, etc. for offline support.
+- Add **Reachability** for network and error handling
 - Can implement **corrupt or fake data (e.g: Faker data) handling** with more understanding of the JSON data.
 - **Test cases can be improved** upon and code coverage can be increased. Testcases for `AppConstants` and UI, network and service must be added and improved.
 - Should add **swift lint** framework for linting.
